@@ -1,0 +1,887 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/20/2023 7:43:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-42BKCN5N"
+  DTS:CreatorName="LAPTOP-42BKCN5N\sridhar"
+  DTS:DTSID="{345E740B-1851-4106-AD1D-E7E7924E8508}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5228.0"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="ssis demo"
+  DTS:PackageType="5"
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{D2AA54A8-2201-44E3-9A71-510345009C12}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[member_file]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{64D6D42E-33E6-41D5-9306-EFFE0C9814C6}"
+      DTS:ObjectName="member_file">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::full_file_path_source]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="16393"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\sridhar\Desktop\Source\Flat File\FF_CD_Source_DerivedCol.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="id"
+              DTS:DTSID="{B3BBAFE0-BACC-4FF4-B17D-73C2744642F2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="F_name"
+              DTS:DTSID="{AC4D5D9C-E197-499D-BC06-A27DCD127CE4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="M_Name"
+              DTS:DTSID="{062F7A9D-A32C-456B-9597-AF22E55BC5D9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="L_name"
+              DTS:DTSID="{939F08C9-0907-4FD0-A972-3698D069F4EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dob"
+              DTS:DTSID="{C58804B5-8D39-4C08-9D4C-E5F7F5EAC51E}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ssis_demo_load]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7DB7B68E-B86A-477F-AB30-238283AA7626}"
+      DTS:ObjectName="ssis_demo_load">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-42BKCN5N\SQLEXPRESS;Initial Catalog=ssis_demo;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{7DB7B68E-B86A-477F-AB30-238283AA7626}LAPTOP-42BKCN5N\SQLEXPRESS.ssis_demo;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5C7BB62F-8800-4F6E-ABFB-A51AD859210E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="filename_source">
+      <DTS:VariableValue
+        DTS:DataType="8">FF_CD_Source_DerivedCol.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7C476996-D764-463C-AD72-60F93C84393A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="folder_path_destination">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\sridhar\Desktop\Source\Archive\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{158937E9-C382-4B1C-B148-5969DA4222B7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="folder_path_source">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\sridhar\Desktop\Source\Flat File\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B22CF2C2-1F82-453B-A1FF-3662604F7421}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::folder_path_destination]+ @[User::new_file_name]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="full_file_path_destination">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\sridhar\Desktop\Source\Archive\FF_CD_DerivedCol_2023_08_20.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1B083856-2072-4C15-AB7D-AE5BA09D1428}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::folder_path_source]+ @[User::filename_source]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="full_file_path_source">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\sridhar\Desktop\Source\Flat File\FF_CD_Source_DerivedCol.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{76640DDE-75A9-4DB1-9055-AFC29FFD9213}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;FF_CD_DerivedCol_&quot; +&#xA;(DT_WSTR,4)YEAR(GETDATE()) + &quot;_&quot; +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR,2)MONTH(GETDATE()), 2) + &quot;_&quot; +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR,2)DAY(GETDATE()), 2) + &quot;.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="new_file_name">
+      <DTS:VariableValue
+        DTS:DataType="8">FF_CD_DerivedCol_2023_08_20.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9B2C4CE7-DB0C-4767-A591-89777406FF43}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::folder_path_source]+ @[User::new_file_name]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="new_full_file_path">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\sridhar\Desktop\Source\Flat File\FF_CD_DerivedCol_2023_08_20.txt</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\File System Task"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{3BE9A0B2-7AF8-404E-9D64-0700A072A4B5}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="File System Task"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="User::full_file_path_destination"
+          TaskIsSourceVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\flat file loader demo"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1FC1B73B-4F4C-40A4-89DB-763C9E6A7D0C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="flat file loader demo"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\flat file loader demo\member flat file"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="16393"
+              name="member flat file"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\flat file loader demo\member flat file.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[member_file]"
+                  connectionManagerRefId="Package.ConnectionManagers[member_file]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].ExternalColumns[id]"
+                      length="50"
+                      lineageId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[F_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].ExternalColumns[F_name]"
+                      length="50"
+                      lineageId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[F_name]"
+                      name="F_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[M_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].ExternalColumns[M_Name]"
+                      length="50"
+                      lineageId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[M_Name]"
+                      name="M_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[L_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].ExternalColumns[L_name]"
+                      length="50"
+                      lineageId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[L_name]"
+                      name="L_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[dob]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].ExternalColumns[dob]"
+                      length="50"
+                      lineageId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[dob]"
+                      name="dob"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].ExternalColumns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].ExternalColumns[F_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="F_name" />
+                    <externalMetadataColumn
+                      refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].ExternalColumns[M_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="M_Name" />
+                    <externalMetadataColumn
+                      refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].ExternalColumns[L_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="L_name" />
+                    <externalMetadataColumn
+                      refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].ExternalColumns[dob]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="dob" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\flat file loader demo\ssis_demo"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="ssis_demo"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[member_info]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\flat file loader demo\ssis_demo.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ssis_demo_load]"
+                  connectionManagerRefId="Package.ConnectionManagers[ssis_demo_load]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      lineageId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].Columns[F_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="F_name"
+                      externalMetadataColumnId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].ExternalColumns[F_name]"
+                      lineageId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[F_name]" />
+                    <inputColumn
+                      refId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].Columns[M_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="M_Name"
+                      externalMetadataColumnId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].ExternalColumns[M_Name]"
+                      lineageId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[M_Name]" />
+                    <inputColumn
+                      refId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].Columns[L_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="L_name"
+                      externalMetadataColumnId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].ExternalColumns[L_name]"
+                      lineageId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[L_name]" />
+                    <inputColumn
+                      refId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].Columns[dob]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="dob"
+                      externalMetadataColumnId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].ExternalColumns[dob]"
+                      lineageId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output].Columns[dob]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].ExternalColumns[F_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="F_name" />
+                    <externalMetadataColumn
+                      refId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].ExternalColumns[M_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="M_Name" />
+                    <externalMetadataColumn
+                      refId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].ExternalColumns[L_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="L_name" />
+                    <externalMetadataColumn
+                      refId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input].ExternalColumns[dob]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="dob" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\flat file loader demo\ssis_demo.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\flat file loader demo\ssis_demo.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\flat file loader demo\ssis_demo.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\flat file loader demo\ssis_demo.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\flat file loader demo\ssis_demo.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\flat file loader demo.Paths[Flat File Source Output]"
+              endId="Package\flat file loader demo\ssis_demo.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\flat file loader demo\member flat file.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\move to archive"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{31770DD6-BA2F-46B2-8739-EAC4E910C243}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="move to archive"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="MoveFile"
+          TaskSourcePath="User::new_full_file_path"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="User::folder_path_destination"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\renaming file"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{F7AA760D-40F0-449E-B858-AF8259AFAF5B}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="renaming file"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="RenameFile"
+          TaskSourcePath="User::full_file_path_source"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="User::new_full_file_path"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\zipping archive file"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{37A5634C-3F32-4C62-844C-4213582F7663}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="zipping archive file"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="Arguments">"a"+" \"-t7z\""+" \"" +@[User::folder_path_destination]+ left(@[User::new_file_name],len( @[User::new_file_name] )-3)+"zip\""+" \""+ @[User::folder_path_destination]+ @[User::new_file_name]+"\""</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\Program Files\7-Zip\7z.exe"
+          Arguments="a &quot;-t7z&quot; &quot;C:\Users\sridhar\Desktop\Source\Archive\FF_CD_DerivedCol_2023_08_20.zip&quot; &quot;C:\Users\sridhar\Desktop\Source\Archive\FF_CD_DerivedCol_2023_08_20.txt&quot;" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{0A93B2D8-C70E-4EB9-B035-E6187A7C82A7}"
+      DTS:From="Package\flat file loader demo"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\renaming file" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{F7CB9398-7302-4F15-9F6F-EA5BAE4B796C}"
+      DTS:From="Package\renaming file"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\move to archive" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{E14893EB-8F1A-4E91-BAB3-B9B85C3A2C12}"
+      DTS:From="Package\move to archive"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\zipping archive file" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{39D0FE46-84FA-486D-B4E5-96579ECCFEF3}"
+      DTS:From="Package\zipping archive file"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\File System Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\flat file loader demo"
+          TopLeft="34.897959257962,26.6554621615094" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\renaming file"
+          TopLeft="49.4897960237181,95.2605041181812" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="120.39387764084,68.2554621615094">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.0050419566718"
+              Start="0,0"
+              End="0,19.5050419566718">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5050419566718" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\move to archive"
+          TopLeft="36.7346939557496,163.865546074853" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="116.512244989734,136.860504118181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.0050419566718"
+              Start="0,0"
+              End="0,19.5050419566718">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5050419566718" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165.6,41.6"
+          Id="Package\zipping archive file"
+          TopLeft="29.5918367976871,232.689075426291" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="112.963265376718,205.465546074853">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.2235293514382"
+              Start="0,0"
+              End="0,19.7235293514382">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.7235293514382" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\File System Task"
+          TopLeft="43.877551113812,318.991596359047" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="112.391836797687,274.289075426291">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.88571431612488,44.7025209327559"
+              Start="0,0"
+              End="9.88571431612488,37.2025209327559">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.351260466378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.351260466378"
+                    Point2="0,22.351260466378"
+                    Point3="4,22.351260466378" />
+                  <mssgle:LineSegment
+                    End="5.88571431612488,22.351260466378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.88571431612488,22.351260466378"
+                    Point2="9.88571431612488,22.351260466378"
+                    Point3="9.88571431612488,26.351260466378" />
+                  <mssgle:LineSegment
+                    End="9.88571431612488,37.2025209327559" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\flat file loader demo">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\flat file loader demo\member flat file"
+          TopLeft="17.8571428951561,32.8823529123538" />
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\flat file loader demo\ssis_demo"
+          TopLeft="66.4285715699804,138.411764584559" />
+        <EdgeLayout
+          Id="Package\flat file loader demo.Paths[Flat File Source Output]"
+          TopLeft="94.2571428951561,74.4823529123538">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35.7714286748243,63.9294116722053"
+              Start="0,0"
+              End="35.7714286748243,56.4294116722053">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.9647058361026" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.9647058361026"
+                    Point2="0,31.9647058361026"
+                    Point3="4,31.9647058361026" />
+                  <mssgle:LineSegment
+                    End="31.7714286748243,31.9647058361026" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.7714286748243,31.9647058361026"
+                    Point2="35.7714286748243,31.9647058361026"
+                    Point3="35.7714286748243,35.9647058361026" />
+                  <mssgle:LineSegment
+                    End="35.7714286748243,56.4294116722053" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\flat file loader demo\ssis_demo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
