@@ -1,6 +1,6 @@
 # SSIS Demo Project 1: Simple Data Loading and File Management
 
-This SSIS demo project showcases a basic data loading process from a flat file into a SQL Server table, along with various file management tasks.
+This SSIS demo project showcases a basic data loading process from a flat file into a SQL Server table, along with file management tasks.
 
 ## Table of Contents
 
@@ -53,12 +53,12 @@ Follow these steps to use the SSIS package:
 
 1. Build and deploy the SSIS package.
 2. Execute the package by right-clicking on it and selecting "Execute Package."
-3. Monitor the progress and review the log for any errors or warnings.
+3. Monitor the progress and review the log for errors or warnings.
 
 ## File Structure
 The project's file structure is organized as follows:
 
-. `Source/`: Contains the source flat file(s) for testing.
-. `Archive/`: Destination folder for archived files.
-. `Scripts/`: SQL scripts for creating necessary database objects.
-. `Documentation/`: Additional project documentation.
+- `Source/`: Contains the source flat file(s) for testing.
+- `Archive/`: Destination folder for archived files.
+- `Scripts/`: SQL scripts for creating necessary database objects.
+- `Documentation/`: Additional project documentation.
